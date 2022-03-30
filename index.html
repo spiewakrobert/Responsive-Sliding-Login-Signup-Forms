@@ -32,7 +32,49 @@
           <div class="forgot-link"><a href="">Forgot password?</a></div>
           <input class="submit-btn" type="submit" value="Login" />
         </form>
+        <div class="login-options">
+          <p class="text">Or, login with...</p>
+          <div class="other-logins">
+            <a href=""><img src="images/apple.png" alt="" /></a>
+            <a href=""><img src="images/facebook.png" alt="" /></a>
+            <a href=""><img src="images/google.png" alt="" /></a>
+          </div>
+        </div>
+      </div>
+      <div class="imgBox sign-in-imgBox">
+        <div class="sliding-link">
+          <p>Don't have an account?</p>
+          <span class="sign-up-btn">Sign up</span>
+        </div>
+        <img src="images/signin-img.png" alt="" />
       </div>
     </div>
+    <script>
+      const textInputs = document.querySelectorAll("input");
+
+      textInputs.forEach((textInput) => {
+        textInput.addEventListener("focus", () => {
+          let parent = textInput.parentNode;
+          parent.classList.add("active");
+        });
+        textInput.addEventListener("blur", () => {
+          let parent = textInput.parentNode;
+          parent.classList.remove("active");
+        });
+      });
+
+      const passwordInput = document.querySelector(".password-input");
+      const eyeBtn = document.querySelector(".eye-btn");
+
+      eyeBtn.addEventListener("click", () => {
+        if (passwordInput.type === "password") {
+          passwordInput.type = "text";
+          eyeBtn.innerHTML = "<i class='uil uil-eye'></i>";
+        } else {
+          passwordInput.type = "password";
+          eyeBtn.innerHTML = "<i class='uil uil-eye-slash'</i>";
+        }
+      });
+    </script>
   </body>
 </html>
